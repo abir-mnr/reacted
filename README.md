@@ -13,3 +13,9 @@ Created a functional component and rendered it in the index file
 Day 3 (2023-10-08)
 A long time have passed got busy with office task.
 Lets start the progress again...
+Did revised the jsx notation. 
+
+Day 4 (2023-10-09)
+Creating the comment app with react 
+[Repository Link](https://github.com/abir-mnr/comment-react)
+
