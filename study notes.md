@@ -122,3 +122,4 @@ const Spinner = props => {
 
 It will load the default message if we don't send message props when calling the component from other component. 
 
+# Notes from the comment app
