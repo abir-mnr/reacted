@@ -13,7 +13,7 @@ If we want to import our custom component then we need to write like this:
 Import OurCustomComponent from './OurCustomComponent';
 ```
 
-## Wriitng html classes and input 'for' in jsx: 
+## Wriitng html classes and input 'for attribute in jsx: 
 For writing class names in jsx we need to use 'className' attribute. 
 For giving a for attribute to a input we need to use 'htmlFor' attribute. 
 
@@ -123,3 +123,82 @@ const Spinner = props => {
 It will load the default message if we don't send message props when calling the component from other component. 
 
 # Notes from the comment app
+## Using faker with React: 
+Previously we could use faker with the 'faker' library. Now we need to use the '@faker-js/faker' library.
+Use this command for installing package: 
+```
+npm install @faker-js/faker --save-dev
+```
+Import the library in react component like this: 
+```
+import { faker } from '@faker-js/faker';
+```
+
+We need to access the fake data by using the below notation. Notice the end of the calling line is a method call not a property call. Ex: 
+```
+faker.image.avatar()
+(Not faker.image.avatar)
+```
+Detailed documentation: https://fakerjs.dev/api/
+We need to import faker library to that component which utilizes the faker library. We cannot import the faker library to a parent component and call faker data in child component. We have to import the library in the child component.
+
+## Creating a custom component: 
+The convention is to create a component name with Camel case. like: CommneDetails.js
+When creating the child component we need to export the component so that other component can import it. For that we need to write this line below the component: 
+```
+export default CommentDetail;
+```
+## Sending props: 
+The props system is used to send the data from the parent to child component. Child cannot send data to the parent using the props. for sending the data we need to give the name of the props when calling the component from the parent component. Every component declarion has a property named props in the first argument of the component declaration method. We can then access the props by the name of the props sent from the parent component. 
+For Example: <br>
+Calling the child component from the parent component with props: 
+```
+<CommentDetail userName="Bob" commentDetail="Nice blog" />
+```
+Accessing props from the child component: 
+```
+cont CommentDetail = (props) => { //we need to give the props parameter in the child component
+
+}
+```
+```
+<div className="user-name">{props.userName}</div>
+<div className="comment-detail">{props.commentDetail}</div>
+```
+## Displaying nested child component inside another component (using props): 
+If we want to show another child component within a child component we need to write the child component in the parent component using pair of closing tags rather than self closing tags. And between the starting and closing tags we need to write the another component that we wanted to show. We will find the nested child in the props.children property in which they were nested. For ex- <br>
+Our index file looks like this: 
+```
+<ApprovalCard>
+            <CommentDetail userName="Sam" timeAgo="Yesterday at 12:00pm" commentDetail="Nice blog 2" image={faker.image.avatar()} />
+</ApprovalCard>
+```
+Here we are displaying the CommentDetail component inside of ApprovalCard component. 
+
+
+Our `ApprovalCard` component looks like this: 
+```
+<div className="ui card">
+    <div className="content">{props.children}</div>
+    <div className="extra content">
+        <div className="ui two buttons">
+            <div className="ui basic green button">Approve</div>
+            <div className="ui basic red button">Reject</div>
+        </div>
+    </div>
+</div>
+```
+Here, we are getting the `CommentDetail` component data in the `props.children` property. And it will be rendered in the content div. 
+
+
+We not only can render child component here but also we can render any jsx or single line. For ex we can write : 
+```
+<ApprovalCard>
+            <h4>Warning !</h4>
+            <div>
+                Are you sure you want to accept this?
+            </div>
+</ApprovalCard>
+```
+And it will show with the two button card like before.
+

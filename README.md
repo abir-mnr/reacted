@@ -21,4 +21,10 @@ Creating the comment app with react
 tried to write some code by watching but the faker library failed on me. 
 Tried to solve the issue. But no luck. Will try tomorrow. 
 
+Day 5 (2023-10-11)
+Continuing the comment app. 
+Rendered the comment with props and child component.
+Rendered the comment approval card with another child component and made use of the CommentDetail component inside the ApprovalCard component.
+The comment app is complete. 
+Will move on to the folder 4 structuring apps with class component.
 
