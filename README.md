@@ -28,3 +28,11 @@ Rendered the comment approval card with another child component and made use of 
 The comment app is complete. 
 Will move on to the folder 4 structuring apps with class component.
 
+Day 6 (2023-10-18)
+A week have passed lets learn something more. 
+Creating Weather App with react 
+[Repository LInk](https://github.com/abir-mnr/weather-react)
+Bootstraped react with semantic ui. 
+Created class based component and initialized state in the constructor and modified it. 
+Showed the location lat on the body.
+

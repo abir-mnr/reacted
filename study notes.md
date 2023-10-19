@@ -202,3 +202,46 @@ We not only can render child component here but also we can render any jsx or si
 ```
 And it will show with the two button card like before.
 
+# Class Based Components
+When We want to use the **Lifecycle Method System** and **State** system then we need to use the class based component. As they are not available in function based component. 
+
+Function component can have the similar functionality by using the **Hooks** system. 
+
+# Notes From the Weather App
+Snippet of the class based component: 
+```
+import React from "react";
+import ReactDOM from "react-dom";
+import SeasonDisplay from "./SeasonDisplay";
+
+class App extends React.Component{
+    render(){
+        window.navigator.geolocation.getCurrentPosition(
+            (position) => console.log(position.coords.latitude),
+            (err) => console.log(err.message)
+        );
+        return <div>latitude: </div>
+    }
+}
+
+ReactDOM.render(<App />, document.querySelector('#root'));
+```
+this is the **App** component. Notice we used a render() method in there written all the codes. We have also sritten return mehtod in that method. When we are creating a class based component we need to extend that component from React.Component class. 
+
+## Details about state: 
+Updating state of a component causes it to instantly re render. 
+
+**State property can only be updated by using the method setState(). Don't directly assign value to state.proper=value rather use setState({property: value}).**
+
+We should initialize state when our component first created. 
+
+when we create a constructor function we need to pass a parameter called props and call the super method with that props. Or it will result in an error. 
+```
+constructor(props){
+    super(props);
+}
+```
+when initializing state in the constructor we can use this code: 
+```
+this.state = {property: value};
+```
