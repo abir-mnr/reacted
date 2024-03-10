@@ -228,10 +228,11 @@ ReactDOM.render(<App />, document.querySelector('#root'));
 ```
 this is the **App** component. Notice we used a render() method in there written all the codes. We have also sritten return mehtod in that method. When we are creating a class based component we need to extend that component from React.Component class. 
 
+**Code apart from rendering and simple operation should be written outside of the APP class**
 ## Details about state: 
 Updating state of a component causes it to instantly re render. 
 
-**State property can only be updated by using the method setState(). Don't directly assign value to state.proper=value rather use setState({property: value}).**
+**State property can only be updated by using the method setState(). Don't directly assign value to state.property=value rather use setState({property: value}).**
 
 We should initialize state when our component first created. 
 
@@ -245,3 +246,13 @@ when initializing state in the constructor we can use this code:
 ```
 this.state = {property: value};
 ```
+We can also initialize state outside the constructor by specifying this line 
+
+```
+state = {property: value}
+```
+It will under the hood do the same initialization with the constructor. 
+
+## Adding CSS files
+We need to create a css file in the directory of the component js file and import that file in the js component file. The css file won't load automatically. 
+

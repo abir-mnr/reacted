@@ -36,3 +36,7 @@ Bootstraped react with semantic ui.
 Created class based component and initialized state in the constructor and modified it. 
 Showed the location lat on the body.
 
+Day 7 (2024-03-10)
+Continuing the app. 
+Finished the app with the UI
+
